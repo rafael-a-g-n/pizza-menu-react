@@ -1,70 +1,176 @@
-# Getting Started with Create React App
+# 🍕 Pesto's Pizza World
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A clean, responsive pizza menu web application built with **React 18**. This project demonstrates core React fundamentals alongside modern CSS techniques, making it an ideal showcase of front-end development skills.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Live Demo
 
-### `npm start`
+> Run locally with `npm start` — see [Getting Started](#getting-started) below.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📸 Preview
 
-### `npm test`
+The app renders a full pizza menu with:
+- A styled header with decorative CSS pseudo-elements
+- A menu grid showing each pizza's photo, ingredients, and price
+- A time-aware footer that shows an order button only during business hours (12:00–22:00)
+- Sold-out pizzas displayed in grayscale with a "SOLD OUT" badge
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🛠️ Technologies & Tools
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| Technology | Purpose |
+|---|---|
+| **React 18** | UI library — component rendering, JSX, StrictMode |
+| **ReactDOM** | Mounting the React app to the DOM via `createRoot` |
+| **Create React App** | Zero-config project scaffolding, build pipeline (Webpack, Babel, ESLint) |
+| **JavaScript (ES6+)** | Arrow functions, destructuring, template literals, array methods |
+| **JSX** | Declarative UI syntax embedded in JavaScript |
+| **CSS3** | Styling — custom properties, Flexbox, CSS Grid, transitions, pseudo-elements |
+| **Google Fonts** | Typography — Roboto Mono font family |
+| **@testing-library/react** | Component testing utilities |
+| **@testing-library/jest-dom** | Custom DOM matchers for Jest |
+| **web-vitals** | Core Web Vitals performance measurement |
+| **Node.js / npm** | Dependency management and script running |
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## ⚛️ React Skills Demonstrated
 
-### `npm run eject`
+### Component Architecture
+The app is split into focused, single-responsibility functional components:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
+App
+├── Header       — Displays the restaurant name
+├── Menu         — Renders the pizza list
+│   └── Pizza    — Individual pizza card (×6)
+└── Footer
+    └── Order    — CTA shown only during open hours
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Key React Concepts Used
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **Functional components** — Every UI piece is a pure function returning JSX
+- **Props** — Data flows down from `Menu → Pizza` and `Footer → Order`
+- **JSX** — HTML-like syntax compiled to `React.createElement` calls
+- **Conditional rendering** — The footer shows different content depending on the current time; the menu shows a fallback message when the pizza list is empty
+- **List rendering** — `pizzaData.map()` generates `<Pizza>` components dynamically with stable `key` props
+- **Dynamic class names** — Sold-out pizzas receive a `sold-out` CSS class computed from prop values
+- **React StrictMode** — Enabled at the root to surface potential issues during development
+- **`ReactDOM.createRoot`** — Uses the React 18 concurrent-ready root API
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## 🎨 CSS Skills Demonstrated
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **CSS Reset** — Universal `box-sizing: border-box` and margin/padding reset
+- **Flexbox** — Used for the overall page layout (`container`), individual pizza cards, and the order section
+- **CSS Grid** — Two-column `grid-template-columns: 1fr 1fr` layout for the pizza list
+- **Pseudo-elements (`::before` / `::after`)** — Decorative horizontal lines flanking the header title
+- **CSS transitions** — Smooth hover effect on the order button (`transition: all 0.2s`)
+- **`filter: grayscale()`** — Visual indicator for sold-out items
+- **Responsive typography** — Root `font-size: 62.5%` for intuitive `rem` sizing
+- **Google Fonts integration** — `@import` of Roboto Mono via CSS
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 📁 Project Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
+pizza-menu-react/
+├── public/
+│   ├── index.html          # HTML entry point
+│   ├── pizzas/             # Pizza images (JPEG)
+│   └── manifest.json
+├── src/
+│   ├── index.js            # App entry — all React components
+│   └── index.css           # All styles
+├── package.json
+└── README.md
+```
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🏁 Getting Started
 
-### Making a Progressive Web App
+### Prerequisites
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- [Node.js](https://nodejs.org/) v16 or higher
+- npm (bundled with Node.js)
 
-### Advanced Configuration
+### Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+# 1. Clone the repository
+git clone https://github.com/rafael-a-g-n/pizza-menu-react.git
+cd pizza-menu-react
 
-### Deployment
+# 2. Install dependencies
+npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+# 3. Start the development server
+npm start
+```
 
-### `npm run build` fails to minify
+Open [http://localhost:3000](http://localhost:3000) in your browser. The page reloads automatically on file changes.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## 📜 Available Scripts
+
+| Script | Description |
+|---|---|
+| `npm start` | Runs the app in development mode at `localhost:3000` |
+| `npm test` | Launches the Jest test runner in interactive watch mode |
+| `npm run build` | Creates an optimized production build in the `build/` folder |
+| `npm run eject` | Exposes the underlying Webpack/Babel/ESLint config (one-way operation) |
+
+---
+
+## 🧪 Testing
+
+Testing infrastructure is provided by **Create React App** using:
+
+- **Jest** — Test runner
+- **@testing-library/react** — React component rendering and querying utilities
+- **@testing-library/jest-dom** — Extended DOM assertions (e.g., `toBeInTheDocument`)
+- **@testing-library/user-event** — Simulates real user interactions
+
+Run the tests with:
+
+```bash
+npm test
+```
+
+---
+
+## 📦 Dependencies
+
+```json
+{
+  "react": "^18.2.0",
+  "react-dom": "^18.2.0",
+  "react-scripts": "5.0.1",
+  "@testing-library/jest-dom": "^5.17.0",
+  "@testing-library/react": "^13.4.0",
+  "@testing-library/user-event": "^13.5.0",
+  "web-vitals": "^2.1.4"
+}
+```
+
+---
+
+## 👤 Author
+
+**Rafael A. G. N.**
+- GitHub: [@rafael-a-g-n](https://github.com/rafael-a-g-n)
+
+---
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
