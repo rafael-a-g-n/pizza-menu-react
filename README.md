@@ -131,22 +131,6 @@ Open [http://localhost:3000](http://localhost:3000) in your browser. The page re
 
 ---
 
-## 🧪 Testing
-
-Testing infrastructure is provided by **Create React App** using:
-
-- **Jest** — Test runner
-- **@testing-library/react** — React component rendering and querying utilities
-- **@testing-library/jest-dom** — Extended DOM assertions (e.g., `toBeInTheDocument`)
-- **@testing-library/user-event** — Simulates real user interactions
-
-Run the tests with:
-
-```bash
-npm test
-```
-
----
 
 ## 📦 Dependencies
 
